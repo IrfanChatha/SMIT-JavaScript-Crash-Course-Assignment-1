@@ -1,99 +1,108 @@
-//1. Write a function that creates a closure and returns a function that can add
-//a specific number to any number passed to it. For example, if the closure is
-//created with 5, the returned function should add 5 to any number passed
-//to it.
+// 1. Write a JavaScript program that accepts two numbers in two prompts and
+// displays the larger one in the console.
 
-function createAdd(num5) {
-    return function(num=5) {
-      return num5 + num;
-    }
+let num1 = +prompt("Enter first number: "); 
+let num2 = +prompt("Enter second number: ");
+if (num1 > num2) 
+{console.log(num1 + " is greater");
+} else
+console.log(num2 + " is greater");
+
+
+
+// 2. Write a JavaScript conditional statement to find the sign of a number. Display
+// an alert box with the specified sign.
+// Sample: 3
+// Output : The sign is +
+// Sample: -5
+// Output : The sign is -
+
+let numSign = +prompt("Enter number: ");
+if (numSign > 0) 
+{alert("The sign is +");}
+else if (numSign < 0) 
+{alert("The sign is -");}
+else {alert("The number is Zero.");}
+
+
+
+// 3. Write a JavaScript program that accepts five numbers in five prompts and
+// displays the larger one in the console.
+
+let largest = -Infinity;
+for (let i = 1; i <= 5; i++) {
+  let num = +prompt("Enter number " + i + ":");     //console.log(num);
+  if (num > largest) { 
+  largest = num;
   }
-  const add5 = createAdd(5);
-  const result = add5(5);
-  console.log(result);
-    
+}
+console.log("The largest number is " + largest);
 
-//2. Write a recursive function that searches an array for a specific value. The
-//function should return true if the value is found, and false if it is not. You
-//can assume that the array is not nested.
 
-let arr = [1,2,3,4,5,6,7,8];
-let searchVal1 = 1;
 
-function searchArray(arr, value) {
-    if (arr.length === 0) {
-      return false;
+// 4. Write a JavaScript for loop that will iterate from 0 to 15. For each iteration, it
+// will check if the current number is odd or even, and display a message to the
+// screen.
+// Sample Output :
+// "0 is even"
+// "1 is odd"
+// "2 is even"
+// ----------
+// ----------
+
+for (let i = 0; i <= 15; i++) {
+    if (i % 2 == 0) {console.log(i + " is even");} 
+    else {console.log(i + " is odd");}
+}
+
+
+
+// 5. Write a JavaScript program which computes the average marks of the
+// following students Then, this average is used to determine the corresponding
+// grade.
+// The grades are computed as follows :
+// Range Grade
+// <60 F
+// <70 D
+// <80 C
+// <90 B
+// <100 A
+
+let avgMarks = +prompt("Enter Average Marks of Student: ");
+if (avgMarks < 60) {console.log("The Grade is F");}
+else if (avgMarks < 70) {console.log("The Grade is D");}
+else if (avgMarks < 80) {console.log("The Grade is C");}
+else if (avgMarks < 90) {console.log("The Grade is B");}
+else if (avgMarks <= 100) {console.log("The Grade is A");}
+
+
+
+// 6. Write a JavaScript program which iterates the integers from 1 to 100. But for
+// multiples of three print "Fizz" instead of the number and for the multiples of five
+// print "Buzz". For numbers which are multiples of both three and five print
+// "FizzBuzz".
+
+for (let index = 1; index <= 100; index++) {
+if (index % 3 === 0 && index % 5 === 0) {console.log("FizzBuzz");}
+else if (index % 3 === 0) {console.log("Fizz");}
+else if (index % 5 === 0) {console.log("Buzz");} 
+else {console.log(index);}
+}
+
+
+// 7. Write a JavaScript program to construct the following pattern, using a nested
+// for loop.
+// *
+// * *
+// * * *
+// * * * *
+// * * * * *
+
+let pattern = "";
+for (let i = 0; i < 5; i++) {
+    for (let j = 0; j <= i; j++) {
+        pattern += "* ";
     }
-    else if (arr[0] === searchVal1) {
-      return true;
-    } else { 
-      return false; 
-    }
-  }
-  const resultArr = searchArray(arr, searchVal1);
-  console.log(resultArr);
-  
-
-//3. Write a function that adds a new paragraph element to the bottom of an
-//HTML document. The function should take a string argument that will be
-//used as the text content of the new paragraph element.
-
-function addPara(text) {
-  const para = document.querySelector("body");
-  para.innerHTML = "<p>"+text+"</p>";
-  para.style.position = "absolute";
-  para.style.bottom = 0;
+    pattern += "\n";
 }
-addPara("This is a new paragraph at bottom of HTML page.");
-
-
-//4. Write a function that adds a new list item to an unordered list in an HTML
-//document. The function should take a string argument that will be used as
-//the text content of the new list item.
-
-function addListItem(text) {
-  const newListItem = document.createElement("li");
-  newListItem.textContent = text;
-  const unorderedList = document.querySelector("ul");
-  unorderedList.appendChild(newListItem);
-}
-addListItem('New item');
-
-
-//5. Write a function that changes the background color of an HTML element.
-//The function should take two arguments: the first argument is a reference
-//to the HTML element, and the second argument is a string representing
-//the new background color.
-
-function changeBackgroundColor(element, color) {
-  element.style.backgroundColor = color;
-  }
-
-const text = document.getElementById("My Text");
-changeBackgroundColor(text, "#fff");
-
-
-//6. Write a function that saves an object to localStorage. The function should
-//take two arguments: the first argument is a string representing the key to
-//use for storing the object, and the second argument is the object to store.
-
-function saveToLocalStorage(key, object) {
-  localStorage.setItem(key, JSON.stringify(object));
-}
-const myObject = { name: "Irfan", age: 40 };
-saveToLocalStorage("newObject", myObject);
-
-const myObjectFromLocalStorage = JSON.parse(localStorage.getItem("newObject"));
-
-
-//7. Write a function that retrieves an object from localStorage. The function
-//should take one argument, which is a string representing the key used to
-//store the object. The function should return the object.
-
-
-
-//8. Write a function that takes an object and saves each property to
-//localStorage using the property name as the key and the property value as
-//the value. The function should also retrieve the object from localStorage
-//and return it as a new object.
-
+    console.log(pattern);
